@@ -1,0 +1,32 @@
+{
+  "name": "css-way",
+  "version": "1.0.0",
+  "description": "css组件学习之路",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jetiny/css-way.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jetiny/css-way/issues"
+  },
+  "homepage": "https://github.com/jetiny/css-way#readme",
+  "devDependencies": {
+    "bourbon": "^4.2.6",
+    "gulp": "^3.9.0",
+    "gulp-copy": "0.0.2",
+    "gulp-log": "0.0.0",
+    "gulp-param": "^0.6.4",
+    "gulp-sass": "^2.1.1",
+    "normalize-scss": "^4.0.3",
+    "support-for": "^1.0.3"
+  }
+}

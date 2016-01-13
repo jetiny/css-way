@@ -1,0 +1,92 @@
+// 字体
+@mixin make-icon-font-face($font-name, $font-path, $font-file, $version) {
+    @font-face {
+        font-family: '#{$font-name}';
+        src: url('#{$font-path}/#{$font-file}.eot?v=#{$version}');
+        src: url('#{$font-path}/#{$font-file}.eot?#iefix&v=#{$version}') format('embedded-opentype'),
+             url('#{$font-path}/#{$font-file}.woff?v=#{$version}') format('woff'),
+             url('#{$font-path}/#{$font-file}.ttf?v=#{$version}') format('truetype'),
+             url('#{$font-path}/#{$font-file}.svg?v=#{$version}#regular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+$icon-font-classes : ();
+
+// 添加一个class prefix 选择器
+@mixin append-icon-font-class-prefix($selector) {
+    $lists : ();
+
+    @each $item in $icon-font-classes { //取出旧数据再来一遍
+        $item: unquote($item);
+        $lists: append($lists, $item, comma);
+    }
+
+    @if $selector { //添加新数据
+        $selector: unquote($selector);
+        $lists : append($lists , $selector, comma);
+    }
+
+    $icon-font-classes : $lists !global; //导出全局
+    // @warn #{$icon-font-classes};
+}
+
+@mixin make-icon-font-classes() {
+    $lists : ();
+    @each $item in $icon-font-classes { //取出旧数据再来一遍
+        $item: unquote($item);
+        $lists: append($lists, '[class^="#{$item}-"]' , comma);
+        $lists: append($lists, '[class*="#{$item}-"]' , comma);
+    }
+    #{$lists} {
+        @include make-icon-class-icomoon;
+    }
+}
+
+@mixin make-icon-class-prefix($prefix, $font-family) {
+    
+    @include append-icon-font-class-prefix($prefix);
+
+    [class^="#{$prefix}-"],
+    [class*=" #{$prefix}-"]{
+        /* use !important to prevent issues with browser extensions that change fonts */
+        font-family: '#{$font-family}' !important;
+    }
+}
+
+// icomoon 风格
+@mixin make-icon-class-icomoon($font-family: false) {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    @if $font-family { //实际上是不用的,这是只是为了保证完整性
+        font-family: '#{$font-family}' !important;
+    }
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    // line-height: 1; //这个还是使用默认的好?
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    // 要支持 transform 需要设置
+    display: inline-block;
+    transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}
+
+// fontawesome 风格 (不用,只是做个参考)
+@mixin make-icon-class-fontawesome($font-family) {
+    display: inline-block;
+    font-family: $font-family;
+    font-style: normal;
+    // font: normal normal normal 14px/1 $font-family; // shortening font declaration
+    // font-size: inherit; // can't have font-size inherit on line above, so need to override
+    text-rendering: auto; // optimizelegibility throws things off #1094
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+    speak: none;    // skip 
+}

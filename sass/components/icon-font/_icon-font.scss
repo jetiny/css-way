@@ -1,0 +1,56 @@
+
+$icon-font-on: false !default;
+
+$icon-font-fontawesome-on: $icon-font-on !default;
+$icon-font-fontawesome-class:    'fa';
+$icon-font-fontawesome-family:   'FontAwesome';
+$icon-font-fontawesome-path: 	'../fonts';
+$icon-font-fontawesome-file:     'fontawesome-webfont';
+$icon-font-fontawesome-version:  '4.3.0';
+
+$icon-font-icomoon-on: $icon-font-on !default;
+$icon-font-icomoon-class:    'icon';
+$icon-font-icomoon-family:   'Icomoon';
+$icon-font-icomoon-path: 	'../fonts';
+$icon-font-icomoon-file:     'icomoon';
+$icon-font-icomoon-version:  '2015.06.28';
+
+@if $icon-font-on {
+	
+	@if $icon-font-fontawesome-on {
+		// 添加字体
+		@include make-icon-font-face($icon-font-fontawesome-family, $icon-font-fontawesome-path, $icon-font-fontawesome-file, $icon-font-fontawesome-version);
+		// 添加类前缀和字体
+		@include make-icon-class-prefix($icon-font-fontawesome-class, $icon-font-fontawesome-family);
+	}
+
+	@if $icon-font-icomoon-on {
+		@include make-icon-font-face($icon-font-icomoon-family, $icon-font-icomoon-path, $icon-font-icomoon-file, $icon-font-icomoon-version);	
+		@include make-icon-class-prefix($icon-font-icomoon-class, $icon-font-icomoon-family);
+	}
+	
+	// 导出类
+	@include make-icon-font-classes;
+
+	// 引入扩展样式
+	@if $icon-font-fontawesome-on {
+		$fa-css-prefix: $icon-font-fontawesome-class;
+		@import "icon-font-fontawesome";
+	}
+
+	@if $icon-font-icomoon-on {
+		$icomoon-css-prefix: $icon-font-icomoon-class;
+		@import "icon-font-icomoon";
+	}
+
+	// .tbtn-icon {
+	// 	@include make-button-default;
+	// 	@include make-font-size-sm;
+	// 	@include make-pad-sm;
+	// }
+
+	// .ticon-square {
+	// 	@include make-square-default;
+	// }
+
+}
