@@ -36,7 +36,6 @@
 // 禁用
 @mixin when-form-element-disabled() {
 	&[disabled],
-	&.disabled,
 	fieldset[disabled] & {
 		@content;
 	}

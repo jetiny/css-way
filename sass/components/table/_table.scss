@@ -1,0 +1,36 @@
+$table-on: false !default;
+
+$table-bd-color: #d0d0d0 !default;
+$table-striped-bg-color: #f8f8f8 !default;
+$table-hover-bg-color: #f3f3f3 !default;
+
+@if $table-on {
+/*---@TABLE---*/
+    .tn-table {
+        @include make-table-default;
+
+        > thead {
+            border-bottom: 1px solid $table-bd-color;
+        }
+
+        &.lined > thead > tr,
+        &.lined > tbody > tr {
+            border-bottom: 1px solid $table-bd-color;
+        }
+
+        &.striped > tbody {
+            > tr:nth-child(odd) {
+                background-color: $table-striped-bg-color;
+            }
+        }
+
+        &.hover > tbody > tr:hover {
+            background-color: $table-hover-bg-color;
+        }
+
+        &.bordered {
+            border: 1px solid $table-bd-color;
+        }
+    }
+/*---!TABLE---*/
+}

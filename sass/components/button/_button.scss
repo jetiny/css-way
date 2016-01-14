@@ -1,0 +1,25 @@
+$button-on: false !default;
+
+$button-border-radius : 0 !default; // .2em !default;
+$button-border-width  : .1em !default; // .1em !default;
+
+$button-default-text-color 	:  #333 	!default;
+$button-default-bg-color 	:  #E6E6E6 	!default;
+$button-default-bd-color 	:  #BDBDBD 	!default;
+
+@if $button-on {
+/*---@BUTTON---*/
+    .tn-btn {
+        @include make-button-default;
+        @include make-form-element-disabled;
+        @include make-size-default;
+        @include make-border-width-radius($button-border-width, $button-border-radius);
+        @include make-button-variant($button-default-text-color, $button-default-bg-color, $button-default-bg-color);
+        &:not([disabled]) {
+            @include make-button-tick;
+            @include make-button-inner-shadow;
+            @include make-button-scale;
+        }
+    }
+/*---@BUTTON---*/
+}

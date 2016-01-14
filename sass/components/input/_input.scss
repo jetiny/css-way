@@ -9,7 +9,7 @@ $input-default-bd-color: #C6C6C6 !default;
 
 @if $input-on {
 /*---@INPUT---*/
-	.tinput {
+	.tn-input {
 		@include make-input-default;
 		@include make-size-default;
 		@include make-border-width-radius($input-border-width, $input-border-radius);
