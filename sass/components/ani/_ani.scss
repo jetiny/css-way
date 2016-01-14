@@ -1,0 +1,67 @@
+$ani-on: false !default;
+
+$ani-flip-on : $ani-on !default;
+$ani-rotate-on : $ani-on !default;
+$ani-spin-on : $ani-on !default;
+
+@if $ani-on {
+/*---@ANIMATE---*/
+	
+	// 翻转
+    @if $ani-flip-on {	
+	    .ani-fh {
+	      @include make-ani-flip(-1, 1);
+	      @include make-ani-duration;
+	    }
+
+	    .ani-fv {
+	      @include make-ani-flip(1, -1);
+	      @include make-ani-duration;
+	    }
+    }
+
+	//旋转	
+	@if $ani-rotate-on  {	
+	    .ani-r0 { 
+	      @include make-ani-rotate(0deg);  
+	      @include make-ani-duration;
+	    }
+	    .ani-r1 { 
+	      @include make-ani-rotate(90deg);  
+	      @include make-ani-duration;
+	    }
+	    .ani-r2 { 
+	      @include make-ani-rotate(180deg); 
+	      @include make-ani-duration;
+	    }
+	    .ani-r3 { 
+	      @include make-ani-rotate(270deg); 
+	      @include make-ani-duration;
+	    }
+	}
+	
+	// spin效果
+	@if $ani-spin-on {
+	    //平滑转圈
+	    .ani-spin {
+	        @include animation(spin-keyframe 2s infinite linear);
+	    }
+
+	    //步进转圈
+	    .ani-pulse {
+	        @include animation(spin-keyframe 1s infinite steps(8));
+	    }
+
+	    // spin 关键帧
+	    @include keyframes(spin-keyframe) {
+	      0% {
+	        @include transform( rotate(0deg) );
+	      }
+	      100% {
+	        @include transform( rotate(359deg) );
+	      }
+	    }
+	}
+	
+/*---!ANIMATE---*/
+}

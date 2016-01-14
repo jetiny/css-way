@@ -1,0 +1,15 @@
+
+// 翻转
+@mixin make-ani-flip($horiz, $vert) {
+	@include transform( scale($horiz, $vert));
+}
+
+//旋转
+@mixin make-ani-rotate($degrees) {
+	@include transform( rotate($degrees) );
+}
+
+//时间
+@mixin make-ani-duration($duration: .4s) {
+	@include transition-duration ($duration);
+}

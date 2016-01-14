@@ -1,0 +1,128 @@
+//一些基础配置
+
+
+//--------------------------------------------------------- 字体
+
+// 字体
+
+$font-size-sm: 12px !default;
+$font-size-default: 14px !default;
+$font-size-lg: 16px !default;
+$line-height-default: 1.2 !default; // line-height(1.0~1.2)
+
+@mixin make-line-height-default() {
+	line-height: $line-height-default;
+}
+
+@mixin make-font-size-default($important: false, $font-size: $font-size-default) {
+	@if $important {
+    	font-size: $font-size !important;
+	}
+	@else {
+    	font-size: $font-size;
+	}
+}
+
+@mixin make-font-size-sm($important: false, $font-size: $font-size-sm) {
+    @include make-font-size-default($important, $font-size-sm);
+}
+
+@mixin make-font-size-lg($important: false, $font-size: $font-size-lg) {
+    @include make-font-size-default($important, $font-size-lg);
+}
+
+// 方形
+@mixin make-square-default($important: false, $font-size: $font-size-default) {
+	@if $important {
+	    font-size: $font-size !important;
+	    width: ceil($font-size * $line-height-default) !important;
+	}
+	@else {
+	    font-size: $font-size;
+	    width: ceil($font-size * $line-height-default); //近似
+	}
+}
+
+@mixin make-square-sm($important: false, $font-size: $font-size-sm) {
+    @include make-square-default($important, $font-size-sm);
+}
+
+@mixin make-square-lg($important: false, $font-size: $font-size-lg) {
+    @include make-square-default($important, $font-size-lg);
+}
+
+//--------------------------------------------------------- 内补白
+
+$pad-padding-sm: 0.25em !default;
+$pad-padding-default: 0.5em !default;
+$pad-padding-lg: 0.75em !default;
+
+@mixin make-pad-default($important: false, $padding: $pad-padding-default) {
+	@if $important {
+    	padding: $padding !important;
+	}
+	@else {
+    	padding: $padding;
+	}
+}
+
+@mixin make-pad-sm($important: false, $padding: $pad-padding-sm) {
+    @include make-pad-default($important, $padding);
+}
+
+@mixin make-pad-lg($important: false, $padding: $pad-padding-lg) {
+    @include make-pad-default($important, $padding);
+}
+
+//--------------------------------------------------------- 基础扩展
+
+// 默认元素基础配置
+@mixin make-size-default() {
+	@include make-font-size-default;
+	@include make-pad-default;
+	@include make-line-height-default;
+}
+
+// 表单元素禁用
+@mixin make-form-element-disabled() {
+	@include when-form-element-disabled {
+		cursor: default;
+		box-shadow: none;
+		@include opacity(.65);
+	};
+}
+
+
+//--------------------------------------------------------- 辅助函数
+
+// 边辅助
+@mixin make-border-width-radius($bd-width: false, $bd-radius : false) {
+    @if $bd-width {
+        border-width: $bd-width;
+    }
+    @if $bd-radius {
+        border-radius: $bd-radius;
+    }
+}
+
+// 填充颜色
+@mixin make-color-variant($color: false, $bg-color: false, $bd-color: false) {
+	@if ($color) {
+		color: $color;
+	}
+	@if ($bg-color) {
+		background-color: $bg-color;
+	}
+	@if ($bd-color) {
+		border-color: $bd-color;
+	}
+}
+
+//--------------------------------------------------------- 效果辅助
+
+//加粗边框
+@mixin make-border-shadow($bd-color) {
+	border-color: $bd-color;
+	box-shadow: 0 0 0 1px $bd-color;
+}
+

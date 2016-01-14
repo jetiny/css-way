@@ -1,12 +1,13 @@
 
 $icon-font-on: false !default;
 
-$icon-font-fontawesome-on: $icon-font-on !default;
+$icon-font-fontawesome-on: $icon-font-on !default;	//是否开启字体
 $icon-font-fontawesome-class:    'fa';
 $icon-font-fontawesome-family:   'FontAwesome';
 $icon-font-fontawesome-path: 	'../fonts';
 $icon-font-fontawesome-file:     'fontawesome-webfont';
 $icon-font-fontawesome-version:  '4.3.0';
+$icon-font-fontawesome-default-on: $icon-font-on !default; //是否使用本系统带的默认字体
 
 $icon-font-icomoon-on: $icon-font-on !default;
 $icon-font-icomoon-class:    'icon';
@@ -14,6 +15,7 @@ $icon-font-icomoon-family:   'Icomoon';
 $icon-font-icomoon-path: 	'../fonts';
 $icon-font-icomoon-file:     'icomoon';
 $icon-font-icomoon-version:  '2015.06.28';
+$icon-font-icomoon-default-on: $icon-font-on !default;
 
 @if $icon-font-on {
 	
@@ -33,12 +35,12 @@ $icon-font-icomoon-version:  '2015.06.28';
 	@include make-icon-font-classes;
 
 	// 引入扩展样式
-	@if $icon-font-fontawesome-on {
+	@if $icon-font-fontawesome-on and $icon-font-fontawesome-default-on {
 		$fa-css-prefix: $icon-font-fontawesome-class;
 		@import "icon-font-fontawesome";
 	}
 
-	@if $icon-font-icomoon-on {
+	@if $icon-font-icomoon-on and $icon-font-icomoon-default-on {
 		$icomoon-css-prefix: $icon-font-icomoon-class;
 		@import "icon-font-icomoon";
 	}

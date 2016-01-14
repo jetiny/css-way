@@ -1,1 +1,8 @@
+@import "bourbon";
+
+@import "components/mixins/opacity";
+@import "components/mixins/when";
+@import "components/mixins/make-basic";
+
+@import "components/ani/make-ani";
 @import "components/icon-font/make-icon-font";

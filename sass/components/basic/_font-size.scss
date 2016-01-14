@@ -1,0 +1,19 @@
+
+$font-size-on: false !default;
+$font-size-important: true !default;
+
+@if $font-size-on {
+/*---@FONT-SIZE---*/
+    .fsd {
+        @include make-font-size-default($font-size-important);
+    }
+
+    .fss {
+        @include make-font-size-sm($font-size-important);
+    }
+
+    .fsl {
+        @include make-font-size-lg($font-size-important);
+    }
+/*---!FONT-SIZE---*/
+}

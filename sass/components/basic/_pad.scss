@@ -1,0 +1,18 @@
+$pad-on: false !default;
+$pad-important: true !default;
+
+@if $pad-on {
+/*---@PAD---*/
+    .pdd {
+        @include make-pad-default($pad-important);
+    }
+
+    .pds {
+        @include make-pad-sm($pad-important);
+    }
+
+    .pdl {
+        @include make-pad-lg($pad-important);
+    }
+/*---@PAD---*/
+}

@@ -1,0 +1,43 @@
+
+@mixin when-hover-focus-active() {
+	&:focus,
+	&:hover,
+	&:active,
+	&.active {
+		@content;
+	}
+}
+
+@mixin when-hover-focus() {
+	&:focus,
+	&:hover {
+		@content;
+	}
+}
+
+@mixin when-focus() {
+	&:focus{
+		@content;
+	}
+}
+
+@mixin when-hover() {
+	&:hover{
+		@content;
+	}
+}
+
+@mixin when-active() {
+	&:active{
+		@content;
+	}
+}
+
+// 禁用
+@mixin when-form-element-disabled() {
+	&[disabled],
+	&.disabled,
+	fieldset[disabled] & {
+		@content;
+	}
+}
