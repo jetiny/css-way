@@ -126,3 +126,29 @@ $pad-padding-lg: 0.75em !default;
 	box-shadow: 0 0 0 1px $bd-color;
 }
 
+
+//--------------------------------------------------------- 导出
+
+@mixin export-text-align($important: false) {
+/*---@TEXT-ALIGN---*/
+	.text-left {
+		text-align: left if($important, !important, null);
+	}
+
+	.text-right {
+		text-align: right if($important, !important, null);
+	}
+/*---@TEXT-ALIGN---*/
+}
+
+@mixin export-float($important: false) {
+/*---@FLOAT---*/
+	.float-left {
+		float: left if($important, !important, null);
+	}
+
+	.float-right {
+		float: right if($important, !important, null);
+	}
+/*---@FLOAT---*/
+}

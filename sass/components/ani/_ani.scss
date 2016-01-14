@@ -1,5 +1,6 @@
 $ani-on: false !default;
 
+$ani-important : false !default;
 $ani-flip-on : $ani-on !default;
 $ani-rotate-on : $ani-on !default;
 $ani-spin-on : $ani-on !default;
@@ -10,12 +11,12 @@ $ani-spin-on : $ani-on !default;
 	// 翻转
     @if $ani-flip-on {	
 	    .ani-fh {
-	      @include make-ani-flip(-1, 1);
+	      @include make-ani-flip($ani-important, -1, 1);
 	      @include make-ani-duration;
 	    }
 
 	    .ani-fv {
-	      @include make-ani-flip(1, -1);
+	      @include make-ani-flip($ani-important, 1, -1);
 	      @include make-ani-duration;
 	    }
     }
@@ -23,19 +24,19 @@ $ani-spin-on : $ani-on !default;
 	//旋转	
 	@if $ani-rotate-on  {	
 	    .ani-r0 { 
-	      @include make-ani-rotate(0deg);  
+	      @include make-ani-rotate($ani-important, 0deg);  
 	      @include make-ani-duration;
 	    }
 	    .ani-r1 { 
-	      @include make-ani-rotate(90deg);  
+	      @include make-ani-rotate($ani-important, 90deg);  
 	      @include make-ani-duration;
 	    }
 	    .ani-r2 { 
-	      @include make-ani-rotate(180deg); 
+	      @include make-ani-rotate($ani-important, 180deg); 
 	      @include make-ani-duration;
 	    }
 	    .ani-r3 { 
-	      @include make-ani-rotate(270deg); 
+	      @include make-ani-rotate($ani-important, 270deg); 
 	      @include make-ani-duration;
 	    }
 	}

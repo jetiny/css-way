@@ -1,0 +1,26 @@
+$basic-on : false !default;
+
+$basic-export-text-align: false !default;
+$basic-text-align-important: false !default;
+
+$basic-export-float: false !default;
+$basic-float-important: false !default;
+
+@if $basic-on {
+/*---@BASIC---*/
+	
+	// float
+	@if $basic-export-float {
+		@include export-float($basic-float-important);
+	}
+
+	//text
+	@if $basic-export-text-align {
+		@include export-text-align($basic-text-align-important);
+	}
+
+	.clearfix {
+		@include clearfix;
+	}
+/*---@BASIC---*/
+}

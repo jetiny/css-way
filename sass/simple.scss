@@ -1,0 +1,25 @@
+@import "tiny";
+
+
+.demo-group {
+	margin: 10px;
+	border: 1px dashed #CCC;
+	.info,
+	.code,
+	.view {
+		margin: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px dashed #CCC;
+	}
+	.info {// 分组描述
+	}
+	.code {//代码
+		font-size: 13px;
+	}
+	.view {// 行
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+

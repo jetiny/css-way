@@ -1,12 +1,12 @@
 
 // 翻转
-@mixin make-ani-flip($horiz, $vert) {
-	@include transform( scale($horiz, $vert));
+@mixin make-ani-flip($important, $horiz, $vert) {
+	@include transform( scale($horiz, $vert) if($important, !important, null));
 }
 
 //旋转
-@mixin make-ani-rotate($degrees) {
-	@include transform( rotate($degrees) );
+@mixin make-ani-rotate($important, $degrees) {
+	@include transform( rotate($degrees) if($important, !important, null));
 }
 
 //时间
