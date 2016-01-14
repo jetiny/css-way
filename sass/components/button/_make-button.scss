@@ -84,7 +84,7 @@
 // 缩放效果
 @mixin make-button-scale() {
 	@include when-active {
-	    transform: scale(.9);
+	    transform: scale(.95);
 	    transition: all .2s;
 	};
 }

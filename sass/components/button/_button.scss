@@ -15,11 +15,25 @@ $button-default-bd-color 	:  #BDBDBD 	!default;
         @include make-size-default;
         @include make-border-width-radius($button-border-width, $button-border-radius);
         @include make-button-variant($button-default-text-color, $button-default-bg-color, $button-default-bg-color);
+    }
+
+    .tn-btn-tick {
         &:not([disabled]) {
             @include make-button-tick;
-            @include make-button-inner-shadow;
+        }
+    }
+
+    .tn-btn-scale {
+        &:not([disabled]) {
             @include make-button-scale;
         }
     }
+
+    .tn-btn-shadow {
+        &:not([disabled]) {
+            @include make-button-inner-shadow;
+        }
+    }
+    
 /*---@BUTTON---*/
 }
