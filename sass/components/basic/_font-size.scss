@@ -15,5 +15,6 @@ $font-size-important: false !default;
     .fsl {
         @include make-font-size-lg($font-size-important);
     }
+    
 /*---!FONT-SIZE---*/
 }

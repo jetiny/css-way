@@ -1,0 +1,21 @@
+
+@mixin make-input-default() {
+	border: 0px solid;              // 去除 input的默认边框样式 + 去除 Border宽度
+	// vertical-align: middle;         // 用来对齐 (会导致和按钮不再一条线上)
+	outline: none;                  // 去除默认的outline样式
+}
+
+// flat样式
+@mixin make-input-variant($color, $bg-color, $bd-color) {
+	@include make-color-variant($color, $bg-color, $bd-color); //默认颜色
+	@include when-hover-focus { //活动颜色
+		@include make-color-variant(
+			$color, 
+			if($bg-color, darken($bg-color, 2%) , $bg-color) , 
+			if($bd-color, darken($bd-color, 30%) , $bd-color)
+		);
+	};
+	@include when-form-element-disabled { //禁用颜色
+		@include make-color-variant($color, if($bg-color, darken($bg-color, 5%) , $bg-color), $bd-color);
+	};
+}
