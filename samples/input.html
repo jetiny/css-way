@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../dist/css/simple.css">
+</head>
+<body>
+	<div class="demo-group">
+		<div class="info">Input 默认样式</div>
+		<pre class="code">
+input.tn-input[value="默认输入框"]
+input.tn-input[value="默认输入框" disabled]
+		</pre>
+		<div class="view">
+<input type="text" class="tn-input" value="默认输入框">
+<input type="text" class="tn-input" value="默认输入框" disabled="">
+		</div>
+	</div>
+	<div class="demo-group">
+		<div class="info">Input 尺寸(忽略宽度)</div>
+		<pre class="code">
+input.tn-input.pds.fss[value=小内+小字]
+input.tn-input.pds[value=小内]
+input.tn-input.fss[value=小字]
+input.tn-input.pds.fsl[value=小内+大字]
+br
+input.tn-input[value=默认输入框]
+br
+input.tn-input.pdl.fss[value=大内+小字]
+input.tn-input.fsl[value=大字]
+input.tn-input.pdl[value=大内]
+input.tn-input.pdl.fsl[value=大内+大字]
+		</pre>
+		<div class="view view-input-size" >
+<input type="text" class="tn-input pds fss" value="小内+小字">
+<input type="text" class="tn-input pds" value="小内">
+<input type="text" class="tn-input fss" value="小字">
+<input type="text" class="tn-input pds fsl" value="小内+大字">
+<input type="text" class="tn-input" value="默认输入框">
+<input type="text" class="tn-input pdl fss" value="大内+小字">
+<input type="text" class="tn-input fsl" value="大字">
+<input type="text" class="tn-input pdl" value="大内">
+<input type="text" class="tn-input pdl fsl" value="大内+大字">
+		</div>
+		<style type="text/css">
+			.view-input-size {
+				display: table;
+			}
+			.view-input-size input {
+				/*说明:"好像没法完全自适应";*/
+				display: table-cell;
+				width: 8%;
+    			margin-right: 0.25%;
+			}
+		</style>
+	</div>
+	<div class="demo-group">
+		<div class="info">Input 内嵌按钮</div>
+		<pre class="code">
+label.tn-input{label的input样式}
+label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn{默认按钮}
+label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-appleinc)
+label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-user-tie)+button.tn-btn(>i.icon-key)
+
+fieldset[disabled]>label.tn-input{label的input样式}
+fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn{默认按钮}
+fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-appleinc)
+fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-user-tie)+button.tn-btn(>i.icon-key)
+
+		</pre>
+		<div class="view view-input-addin">
+<label class="tn-input">label的input样式</label>
+<label class="tn-input addin">
+	<input type="text" class="tn-input" value="label内嵌input">
+	<button class="tn-btn">默认按钮</button>
+</label>
+<label class="tn-input addin">
+	<input type="text" class="tn-input" value="label内嵌input">
+	<button class="tn-btn">
+		<i class="icon-appleinc"></i>
+	</button>
+</label>
+<label class="tn-input addin">
+	<input type="text" class="tn-input" value="label内嵌input">
+	<button class="tn-btn"><i class="icon-user-tie"></i></button>
+	<button class="tn-btn"><i class="icon-key"></i></button>
+</label>
+<br>
+<fieldset disabled=""><label for="" class="tn-input">label的input样式</label></fieldset>
+<fieldset disabled=""><label for="" class="tn-input addin"><input type="text" class="tn-input" value="label内嵌input"><button class="tn-btn">默认按钮</button></label></fieldset>
+<fieldset disabled=""><label for="" class="tn-input addin"><input type="text" class="tn-input" value="label内嵌input"><button class="tn-btn"><i class="icon-appleinc"></i></button></label></fieldset>
+<fieldset disabled=""><label for="" class="tn-input addin">
+		<input type="text" class="tn-input" value="label内嵌input">
+		<button class="tn-btn"><i class="icon-user-tie"></i></button>
+		<button class="tn-btn"><i class="icon-key"></i></button>
+	</label></fieldset>
+		</div>
+		<style type="text/css">
+			.view-input-addin fieldset {
+				border: 0;
+				display: inline;
+				margin: 5px 0 0 ;
+				padding: 0;
+			}
+		</style>
+	</div>
+</body>
+</html>

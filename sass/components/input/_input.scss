@@ -15,6 +15,18 @@ $input-default-bd-color: #C6C6C6 !default;
 		@include make-border-width-radius($input-border-width, $input-border-radius);
 		@include make-input-variant($input-default-text-color, $input-default-bg-color, $input-default-bd-color);
 		@include make-form-element-disabled;
+
+		&.addin {
+			padding: 0 !important;
+		    display: inline-flex;
+			>.tn-input,
+			>.tn-btn {
+				border-width:0 !important;
+				@include when-form-element-disabled {
+					@include opacity(1);
+				};
+			}
+		}
 	}
 /*---!INPUT---*/
 }
