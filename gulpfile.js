@@ -85,5 +85,10 @@ gulp.task('samples', function () {
         ;
 });
 
-// gh-pages
-gulp.task('pub', ['assets', 'samples', 'sass']);
+// gh-pages 复制到tmp目录
+gulp.task('pub', ['assets', 'samples', 'sass'], function () {
+    return gulp.src('./dist/**')
+        .pipe(gulpCopy('./tmp', {prefix: 1}))
+        .pipe(gulpLog())
+        ;
+});
