@@ -22,5 +22,37 @@ $basic-float-important: false !default;
 	.clearfix {
 		@include clearfix;
 	}
+	
+	// 方形
+	.tn-square {
+		@include make-square-default;
+	}
+
+	.fss,
+	.tn-group.ss,
+	.tn-group.sd,
+	.tn-group.sl,
+	.tn-group-line.ss,
+	.tn-group-line.sd,
+	.tn-group-line.sl,
+	{
+		.tn-square {
+			@include make-square-sm;
+		}
+	}
+	
+	.fsl,
+	.tn-group.ls,
+	.tn-group.ld,
+	.tn-group.ll,	
+	.tn-group-line.ls,
+	.tn-group-line.ld,
+	.tn-group-line.ll,
+	{
+		.tn-square {
+			@include make-square-lg;
+		}
+	}
+
 /*---@BASIC---*/
 }

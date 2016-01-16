@@ -28,6 +28,7 @@
 }
 
 @mixin when-active() {
+	&.active,
 	&:active{
 		@content;
 	}

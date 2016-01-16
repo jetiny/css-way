@@ -1,0 +1,22 @@
+$group-on: false !default;
+
+@if $group-on {
+/*---@GROUP---*/
+	.tn-group,
+	.tn-group-line {
+		@include make-group-default;
+		
+		&.circle > {
+			@include make-group-item-circle;
+		}
+
+		&.round > {
+			@include make-group-item-round;
+		}
+	}
+
+	.tn-group-line {
+		@include make-group-line;
+	}
+/*---!GROUP---*/
+}

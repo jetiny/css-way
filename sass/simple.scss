@@ -23,3 +23,24 @@
 	}
 }
 
+.tn-btn-group {
+
+    &.fsd {
+    	>.tn-btn {
+        	@include make-font-size-default($font-size-important);
+    	}
+    }
+
+    &.fss {
+    	>.tn-btn {
+	        @include make-font-size-sm($font-size-important);
+	    }
+    }
+
+    &.fsl {
+    	>.tn-btn {
+        	@include make-font-size-lg($font-size-important);
+        }
+    }
+
+}

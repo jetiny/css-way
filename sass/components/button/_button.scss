@@ -34,5 +34,19 @@ $button-default-bd-color 	:  #BDBDBD 	!default;
             @include make-button-inner-shadow;
         }
     }
+    
+//分组
+    @include group-append-selector('&>.tn-btn');
+
+    .group.inline {
+        >.tbtn {
+            @include border-right-radius(0);
+            ~.tbtn {
+                border-left-width: 0;
+                @include border-left-radius(0);
+            }
+        }
+    }
+    
 /*---@BUTTON---*/
 }

@@ -1,0 +1,128 @@
+// 列表分组
+
+$group-item-selector : '>li, >.item' !default;
+
+@mixin make-group-ll() {
+	@include make-font-size-lg;
+	@include make-pad-lg;
+}
+
+@mixin make-group-ls() {
+	@include make-font-size-lg;
+	@include make-pad-sm;
+}
+
+@mixin make-group-sl() {
+	@include make-font-size-sm;
+	@include make-pad-lg;
+}
+
+@mixin make-group-ss() {
+	@include make-font-size-sm;
+	@include make-pad-sm;
+}
+
+@mixin make-group-sd() {
+	@include make-font-size-sm;
+	@include make-pad-default;
+}
+
+@mixin make-group-ds() {
+	@include make-font-size-default;
+	@include make-pad-sm;
+}
+
+@mixin make-group-ld() {
+	@include make-font-size-lg;
+	@include make-pad-default;
+}
+
+@mixin make-group-dl() {
+	@include make-font-size-default;
+	@include make-pad-lg;
+}
+
+@mixin make-group-dd() {
+	@include make-font-size-default;
+	@include make-pad-default;
+}
+
+@mixin make-group-item($name) {
+	&.ll { #{$name} { @include make-group-ll;	}}
+	&.ls { #{$name} { @include make-group-ls;	}}
+	&.ss { #{$name} { @include make-group-ss;	}}
+	&.sl { #{$name} { @include make-group-sl;	}}
+	&.ld { #{$name} { @include make-group-ld;	}}
+	&.sd { #{$name} { @include make-group-sd;	}}
+	&.dl { #{$name} { @include make-group-dl;	}}
+	&.ds { #{$name} { @include make-group-ds;	}}
+	&.dd { #{$name} { @include make-group-dd;	}}
+}
+
+@mixin make-group($name) {
+	// reset ul style & margin & padding
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+	>* {
+		@include make-size-default;
+		@content;
+	}
+
+	@include make-group-item('>*');
+}
+
+@mixin make-group-line() {
+	display: inline-block;
+	vertical-align: middle;
+	@include clearfix;
+	>* {
+		float: left;
+		margin-left: -1px ;
+		@include when-hover-focus-active{
+			z-index: 2;
+		};
+	}
+}
+
+@mixin make-group-item-circle() {
+	:first-child {
+		@include border-left-radius(500px);
+	}
+	:last-child {
+		@include border-right-radius(500px);
+	}
+}
+
+@mixin make-group-item-round($radius : .3em) {
+	:first-child {
+		@include border-left-radius($radius);
+	}
+	:last-child {
+		@include border-right-radius($radius);
+	}
+}
+
+$group-item-selectors : (
+	'>li, >.item'
+);
+
+@mixin make-group-default() {
+	@include make-group($group-item-selectors);
+}
+
+// 添加一个group选择器
+@mixin group-append-selector($selector) {
+	$lists : $group-item-selectors;
+
+	@if $selector { //添加新数据
+		$selector: unquote($selector);
+		$lists : append($lists , $selector, comma);
+	}
+
+	$group-item-selectors : $lists !global; //导出全局
+}
+
+// @include group-append-selector('&>.btn');
+// @include group-append-selector('&.menu-group>.menu');
