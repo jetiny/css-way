@@ -35,10 +35,9 @@ $button-default-bd-color 	:  #BDBDBD 	!default;
         }
     }
     
-//分组
-    @include group-append-selector('&>.tn-btn');
-
-    .group.inline {
+//组
+    .tn-group,
+    .tn-group-line {
         >.tbtn {
             @include border-right-radius(0);
             ~.tbtn {

@@ -16,12 +16,7 @@ $icon-font-classes : ();
 
 // 添加一个class prefix 选择器
 @mixin append-icon-font-class-prefix($selector) {
-    $lists : ();
-
-    @each $item in $icon-font-classes { //取出旧数据再来一遍
-        $item: unquote($item);
-        $lists: append($lists, $item, comma);
-    }
+    $lists : $icon-font-classes;
 
     @if $selector { //添加新数据
         $selector: unquote($selector);
@@ -29,7 +24,6 @@ $icon-font-classes : ();
     }
 
     $icon-font-classes : $lists !global; //导出全局
-    // @warn #{$icon-font-classes};
 }
 
 @mixin make-icon-font-classes() {

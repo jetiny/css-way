@@ -59,7 +59,7 @@ $group-item-selector : '>li, >.item' !default;
 	&.dd { #{$name} { @include make-group-dd;	}}
 }
 
-@mixin make-group($name) {
+@mixin make-group-default() {
 	// reset ul style & margin & padding
 	list-style: none;
 	margin: 0;
@@ -103,26 +103,3 @@ $group-item-selector : '>li, >.item' !default;
 		@include border-right-radius($radius);
 	}
 }
-
-$group-item-selectors : (
-	'>li, >.item'
-);
-
-@mixin make-group-default() {
-	@include make-group($group-item-selectors);
-}
-
-// 添加一个group选择器
-@mixin group-append-selector($selector) {
-	$lists : $group-item-selectors;
-
-	@if $selector { //添加新数据
-		$selector: unquote($selector);
-		$lists : append($lists , $selector, comma);
-	}
-
-	$group-item-selectors : $lists !global; //导出全局
-}
-
-// @include group-append-selector('&>.btn');
-// @include group-append-selector('&.menu-group>.menu');
