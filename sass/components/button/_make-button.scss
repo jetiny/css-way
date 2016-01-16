@@ -31,7 +31,7 @@
 		}
 		@else {		
 			@include make-color-variant(
-				$color, 
+				false, // $color, // 省略
 				if($bg-color, darken($bg-color, 10%) , $bg-color), 
 				if($bd-color, darken($bd-color, 10%) , $bd-color)
 			);
@@ -47,7 +47,7 @@
 		}
 		@else {		
 			@include make-color-variant(
-				$color, 
+				false, // $color, // 省略
 				if($bg-color, darken($bg-color, 15%) , $bg-color), 
 				if($bd-color, darken($bd-color, 10%) , $bd-color)
 			);
