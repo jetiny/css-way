@@ -2,6 +2,8 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
     path = require('path'),
     gulpCopy = require('gulp-copy'),
     gulpLog = require('gulp-log'),
+    replace = require('gulp-replace'),
+    savefile = require('gulp-savefile'),
     sass = require('gulp-sass'),
     fs = require('fs');
 
@@ -39,6 +41,8 @@ function sass_paths(dir, libs) {
 }
 
 //编译sass到当前css目录
+var distDir = './dist';
+
 gulp.task('sass', function () {
     var paths = [
             path.resolve(__dirname, '../sass'),
@@ -53,7 +57,7 @@ gulp.task('sass', function () {
             includePaths: paths
         }).on('error', sass.logError))
         .pipe(gulpLog())
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest(distDir+'/css'));
 });
 
 //监听sass
@@ -66,7 +70,20 @@ gulp.task('sass-watch', function () {
 //复制字体
 gulp.task('assets', function () {
     return gulp.src('./fonts/*.*')
-        .pipe(gulpCopy('./dist'))
+        .pipe(gulpCopy(distDir))
         .pipe(gulpLog())
         ;
 });
+
+//复制例子
+gulp.task('samples', function () {
+    return gulp.src('./samples/*.*')
+        .pipe(gulpCopy(distDir))
+        .pipe(replace(/\.\.\/dist/g, '..'))
+        .pipe(savefile())
+        .pipe(gulpLog())
+        ;
+});
+
+// gh-pages
+gulp.task('pub', ['assets', 'samples', 'sass']);
