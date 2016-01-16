@@ -16,7 +16,7 @@ $button-default-bd-color 	:  #BDBDBD 	!default;
         @include make-border-width-radius($button-border-width, $button-border-radius);
         @include make-button-variant($button-default-text-color, $button-default-bg-color, $button-default-bg-color);
     }
-
+//效果
     .tn-btn-tick {
         &:not([disabled]) {
             @include make-button-tick;
@@ -34,6 +34,5 @@ $button-default-bd-color 	:  #BDBDBD 	!default;
             @include make-button-inner-shadow;
         }
     }
-    
 /*---@BUTTON---*/
 }

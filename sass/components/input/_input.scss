@@ -19,6 +19,7 @@ $input-default-bd-color: #C6C6C6 !default;
 		&.addin {
 			padding: 0 !important;
 		    display: inline-flex;
+		    >.tn-label,
 			>.tn-input,
 			>.tn-btn {
 				border-width:0 !important;

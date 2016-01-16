@@ -1,0 +1,13 @@
+$label-on : false !default;
+
+$label-border-radius : 0 !default; // .2em !default;
+$label-border-width  : .1em !default; // .1em !default;
+
+@if $label-on {
+/*---@LABEL---*/
+    .tn-label {
+        @include make-label-default;
+        @include make-border-width-radius($label-border-width, $label-border-radius);
+    }
+/*---@LABEL---*/
+}

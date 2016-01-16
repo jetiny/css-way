@@ -1,0 +1,117 @@
+// flat 颜色风格
+
+$flat-required-bd-color		: #FFC107 	!default;	//必填
+$flat-access-bd-color		: #26A69A 	!default;	//可访问
+$flat-success-bd-color		: #4CAE4C 	!default;	//成功
+$flat-error-bd-color		: #FF0000 	!default;	//错误
+
+$flat-text-color-white 		: #FFF 		!default;	//亮色
+$flat-text-color-black 		: #000 		!default;	//暗色
+
+$flat-default-text-color 	: #FFF	 	!default;	//默认
+$flat-default-bg-color 		: #E6E6E6 	!default;
+$flat-default-bd-color 		: #999999	!default;
+
+$flat-primary-text-color 	: #000 		!default;	//主要
+$flat-primary-bg-color 		: #1565C0 	!default;
+$flat-primary-bd-color 		: #0D47A1	!default;
+
+$flat-danger-text-color 	: #000 		!default;	//危险
+$flat-danger-bg-color 		: #E53935 	!default;
+$flat-danger-bd-color 		: #C62828 	!default;
+
+$flat-warn-text-color 		: #000 		!default;	//警告
+$flat-warn-bg-color 		: #FF8F00 	!default;
+$flat-warn-bd-color 		: #FF6F00 	!default;
+
+$flat-info-text-color 		: #000 		!default;	//信息
+$flat-info-bg-color 		: #4198D2 	!default;
+$flat-info-bd-color 		: #1976D2 	!default;
+
+$flat-done-text-color 		: #000 		!default;	//完成
+$flat-done-bg-color 		: #43A047 	!default;
+$flat-done-bd-color 		: #388E3C 	!default;
+
+
+@mixin make-flat-button () {
+	&.flat-default { // 一般
+		@include make-button-variant($flat-default-text-color, $flat-default-bg-color, $flat-default-bd-color);
+		@content;
+	}
+	&.flat-default-lite { // 一般
+		@include make-button-variant($flat-text-color-black, $flat-text-color-white, $flat-default-bd-color);
+		@content;
+	}
+	&.flat-primary { // 重要
+		@include make-button-variant($flat-primary-text-color, $flat-primary-bg-color, $flat-primary-bd-color);
+		@content;
+	}
+	&.flat-primary-lite { // 重要
+		@include make-button-variant($flat-primary-text-color, $flat-primary-bg-color, $flat-primary-bd-color, true);
+		@content;
+	}
+	&.flat-danger { // 危险 非常重要
+		@include make-button-variant($flat-danger-text-color, $flat-danger-bg-color, $flat-danger-bd-color);
+		@content;
+	}
+	&.flat-danger-lite { // 危险 非常重要
+		@include make-button-variant($flat-danger-text-color, $flat-danger-bg-color, $flat-danger-bd-color, true);
+		@content;
+	}
+	&.flat-warn { // 警告
+		@include make-button-variant($flat-warn-text-color, $flat-warn-bg-color, $flat-warn-bd-color);
+		@content;
+	}
+	&.flat-warn-lite { // 警告
+		@include make-button-variant($flat-warn-text-color, $flat-warn-bg-color, $flat-warn-bd-color, true);
+		@content;
+	}
+	&.flat-info { // 信息
+		@include make-button-variant($flat-info-text-color, $flat-info-bg-color, $flat-info-bd-color);
+		@content;
+	}
+	&.flat-info-lite { // 信息
+		@include make-button-variant($flat-info-text-color, $flat-info-bg-color, $flat-info-bd-color, true);
+		@content;
+	}
+	&.flat-done { // 完成
+		@include make-button-variant($flat-done-text-color, $flat-done-bg-color, $flat-done-bd-color);
+		@content;
+	}
+	&.flat-done-lite { // 完成
+		@include make-button-variant($flat-done-text-color, $flat-done-bg-color, $flat-done-bd-color, true);
+		@content;
+	}	
+}
+
+@mixin make-flat-input() {
+	.flat-required,
+	.flat-access,
+	.flat-success,
+	.flat-error, {
+		@include when-hover-focus {
+			box-shadow: none;
+		}
+	}
+
+	.flat-access { //可访问
+		@include make-border-shadow($flat-access-bd-color);
+		@content;
+	}
+
+	.flat-required { //必须
+		@include make-border-shadow($flat-required-bd-color);
+		@content;
+	}
+
+	.flat-success { //成功
+		@include make-border-shadow($flat-success-bd-color);
+		@content;
+	}
+
+	.flat-error { //失败
+		@include make-border-shadow($flat-error-bd-color);
+		@content;
+	}
+
+}

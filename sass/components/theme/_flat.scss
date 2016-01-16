@@ -1,0 +1,13 @@
+
+$flat-on : false !default;
+
+@if $flat-on {
+/*---@FLAT---*/
+	@include make-flat-button {
+
+	};
+	@include make-flat-input{
+		
+	};
+/*---@FLAT---*/
+}

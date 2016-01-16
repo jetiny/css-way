@@ -1,0 +1,6 @@
+@mixin make-label-default() {
+	display: inline-block;
+	font-weight: normal;
+	border: 1px solid transparent;  // 去除 Button的默认边框样式 + 去除 Border宽度
+	@include make-size-default;
+}

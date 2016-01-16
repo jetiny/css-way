@@ -56,18 +56,50 @@ input.tn-input.pdl.fsl[value=大内+大字]
 		</style>
 	</div>
 	<div class="demo-group">
+		<div class="info">Input 颜色</div>
+		<pre class="code">
+input.tn-input[value="默认输入框"]
+input.tn-input.flat-access[value="可访问"]
+input.tn-input.flat-required[value="必须"]
+input.tn-input.flat-success[value="成功"]
+input.tn-input.flat-error[value="失败"]
+br
+br
+input.tn-input[value="默认输入框" disabled]
+input.tn-input.flat-access[value="可访问" disabled]
+input.tn-input.flat-required[value="必须" disabled]
+input.tn-input.flat-success[value="成功" disabled]
+input.tn-input.flat-error[value="失败" disabled]
+		</pre>
+		<div class="view">
+<input type="text" class="tn-input" value="默认输入框">
+<input type="text" class="tn-input flat-access" value="可访问">
+<input type="text" class="tn-input flat-required" value="必须">
+<input type="text" class="tn-input flat-success" value="成功">
+<input type="text" class="tn-input flat-error" value="失败">
+<br>
+<br>
+<input type="text" class="tn-input" value="默认输入框" disabled="">
+<input type="text" class="tn-input flat-access" value="可访问" disabled="">
+<input type="text" class="tn-input flat-required" value="必须" disabled="">
+<input type="text" class="tn-input flat-success" value="成功" disabled="">
+<input type="text" class="tn-input flat-error" value="失败" disabled="">
+		</div>
+	</div>
+	<div class="demo-group">
 		<div class="info">Input 内嵌按钮</div>
 		<pre class="code">
 label.tn-input{label的input样式}
 label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn{默认按钮}
 label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-appleinc)
 label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-user-tie)+button.tn-btn(>i.icon-key)
+label.tn-input.addin>label.tn-label(>i.icon-user-tie)+input.tn-input[value="label内嵌input"]
 
 fieldset[disabled]>label.tn-input{label的input样式}
 fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn{默认按钮}
 fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-appleinc)
-fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-user-tie)+button.tn-btn(>i.icon-key)
-
+fieldset[disabled]>label.tn-input.addin>button.tn-btn(>i.icon-user-tie)+input.tn-input[value="label内嵌input"]+button.tn-btn(>i.icon-key)
+fieldset[disabled]>label.tn-input.addin>label.tn-label(>i.icon-user-tie)+input.tn-input[value="label内嵌input"]
 		</pre>
 		<div class="view view-input-addin">
 <label class="tn-input">label的input样式</label>
@@ -82,19 +114,21 @@ fieldset[disabled]>label.tn-input.addin>input.tn-input[value="label内嵌input"]
 	</button>
 </label>
 <label class="tn-input addin">
-	<input type="text" class="tn-input" value="label内嵌input">
 	<button class="tn-btn"><i class="icon-user-tie"></i></button>
+	<input type="text" class="tn-input" value="label内嵌input">
 	<button class="tn-btn"><i class="icon-key"></i></button>
 </label>
+<label for="" class="tn-input addin"><label class="tn-label"><i class="icon-user-tie"></i></label><input type="text" class="tn-input" value="label内嵌input"></label>
 <br>
 <fieldset disabled=""><label for="" class="tn-input">label的input样式</label></fieldset>
 <fieldset disabled=""><label for="" class="tn-input addin"><input type="text" class="tn-input" value="label内嵌input"><button class="tn-btn">默认按钮</button></label></fieldset>
 <fieldset disabled=""><label for="" class="tn-input addin"><input type="text" class="tn-input" value="label内嵌input"><button class="tn-btn"><i class="icon-appleinc"></i></button></label></fieldset>
 <fieldset disabled=""><label for="" class="tn-input addin">
-		<input type="text" class="tn-input" value="label内嵌input">
 		<button class="tn-btn"><i class="icon-user-tie"></i></button>
+		<input type="text" class="tn-input" value="label内嵌input">
 		<button class="tn-btn"><i class="icon-key"></i></button>
 	</label></fieldset>
+<fieldset disabled=""><label class="tn-input addin"><label class="tn-label"><i class="icon-user-tie"></i></label><input type="text" class="tn-input" value="label内嵌input"></label></fieldset>
 		</div>
 		<style type="text/css">
 			.view-input-addin fieldset {
