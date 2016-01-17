@@ -158,50 +158,50 @@ button.tn-btn.flat-done-lite[disabled]{完成}
 	<div class="demo-group">
 		<div class="info">Button 组</div>
 		<pre class="code">
-.tn-group-line>button.tn-btn{按钮$}*3
-.tn-group-line.round>button.tn-btn{按钮$}*3
-.tn-group-line.circle>button.tn-btn{按钮$}*3
+.tn-group-row>button.tn-btn{按钮$}*3
+.tn-group-row.round>button.tn-btn{按钮$}*3
+.tn-group-row.circle>button.tn-btn{按钮$}*3
 
-.tn-group-line>button.tn-btn.flat-default-lite{按钮$}*3
-.tn-group-line.round>button.tn-btn.flat-default-lite{按钮$}*3
-.tn-group-line.circle>button.tn-btn.flat-default-lite{按钮$}*3
+.tn-group-row>button.tn-btn.flat-default-lite{按钮$}*3
+.tn-group-row.round>button.tn-btn.flat-default-lite{按钮$}*3
+.tn-group-row.circle>button.tn-btn.flat-default-lite{按钮$}*3
 
-.tn-group-line>button.tn-btn.flat-info-lite.active{活动}+button.tn-btn.flat-info-lite[disabled]{禁用}+button.tn-btn.flat-info-lite{按钮}
+.tn-group-row>button.tn-btn.flat-info-lite.active{活动}+button.tn-btn.flat-info-lite[disabled]{禁用}+button.tn-btn.flat-info-lite{按钮}
 		</pre>
 		<div class="view">
 
-<div class="tn-group-line">
+<div class="tn-group-row">
 	<button class="tn-btn">按钮1</button>
 	<button class="tn-btn">按钮2</button>
 	<button class="tn-btn">按钮3</button>
 </div>
-<div class="tn-group-line round">
+<div class="tn-group-row round">
 	<button class="tn-btn">按钮1</button>
 	<button class="tn-btn">按钮2</button>
 	<button class="tn-btn">按钮3</button>
 </div>
-<div class="tn-group-line circle">
+<div class="tn-group-row circle">
 	<button class="tn-btn">按钮1</button>
 	<button class="tn-btn">按钮2</button>
 	<button class="tn-btn">按钮3</button>
 </div>
 
-<div class="tn-group-line">
+<div class="tn-group-row">
 	<button class="tn-btn flat-default-lite">按钮1</button>
 	<button class="tn-btn flat-default-lite">按钮2</button>
 	<button class="tn-btn flat-default-lite">按钮3</button>
 </div>
-<div class="tn-group-line round">
+<div class="tn-group-row round">
 	<button class="tn-btn flat-default-lite">按钮1</button>
 	<button class="tn-btn flat-default-lite">按钮2</button>
 	<button class="tn-btn flat-default-lite">按钮3</button>
 </div>
-<div class="tn-group-line circle">
+<div class="tn-group-row circle">
 	<button class="tn-btn flat-default-lite">按钮1</button>
 	<button class="tn-btn flat-default-lite">按钮2</button>
 	<button class="tn-btn flat-default-lite">按钮3</button>
 </div>
-<div class="tn-group-line">
+<div class="tn-group-row">
 	<button class="tn-btn flat-info-lite active">活动</button>
 	<button class="tn-btn flat-info-lite" disabled="">禁用</button>
 	<button class="tn-btn flat-info-lite">按钮</button>
@@ -209,24 +209,50 @@ button.tn-btn.flat-done-lite[disabled]{完成}
 		</div>
 	</div>
 	<div class="demo-group">
-		<div class="info">Button 组尺寸</div>
+		<div class="info">Button 组垂直方向</div>
 		<pre class="code">
-.tn-group-line.ss>button.tn-btn{最小$}*3
-.tn-group-line>button.tn-btn{默认$}*3
-.tn-group-line.ll>button.tn-btn{最大$}*3
+.tn-group-col>button.tn-btn.flat-default-lite{列表项按钮$}*3
+.tn-group-col.round>button.tn-btn.flat-default-lite{列表项按钮$}*3
+
+.tn-group-col>button.tn-btn.flat-info-lite.active{列表项按钮活动}+button.tn-btn.flat-info-lite[disabled]{列表项按钮禁用}+button.tn-btn.flat-info-lite{列表项按钮默认}
 		</pre>
 		<div class="view">
-<div class="tn-group-line ss">
+<div class="tn-group-col">
+	<button class="tn-btn flat-default-lite">列表项按钮1</button>
+	<button class="tn-btn flat-default-lite">列表项按钮2</button>
+	<button class="tn-btn flat-default-lite">列表项按钮3</button>
+</div>
+<div class="tn-group-col round">
+	<button class="tn-btn flat-default-lite">列表项按钮1</button>
+	<button class="tn-btn flat-default-lite">列表项按钮2</button>
+	<button class="tn-btn flat-default-lite">列表项按钮3</button>
+</div>
+<div class="tn-group-col">
+	<button class="tn-btn flat-info-lite active">列表项按钮活动</button>
+	<button class="tn-btn flat-info-lite" disabled="">列表项按钮禁用</button>
+	<button class="tn-btn flat-info-lite">列表项按钮默认</button>
+</div>
+		</div>
+	</div>
+	<div class="demo-group">
+		<div class="info">Button 组尺寸</div>
+		<pre class="code">
+.tn-group-row.ss>button.tn-btn{最小$}*3
+.tn-group-row>button.tn-btn{默认$}*3
+.tn-group-row.ll>button.tn-btn{最大$}*3
+		</pre>
+		<div class="view">
+<div class="tn-group-row ss">
 	<button class="tn-btn">最小1</button>
 	<button class="tn-btn">最小2</button>
 	<button class="tn-btn">最小3</button>
 </div>
-<div class="tn-group-line">
+<div class="tn-group-row">
 	<button class="tn-btn">默认1</button>
 	<button class="tn-btn">默认2</button>
 	<button class="tn-btn">默认3</button>
 </div>
-<div class="tn-group-line ll">
+<div class="tn-group-row ll">
 	<button class="tn-btn">最大1</button>
 	<button class="tn-btn">最大2</button>
 	<button class="tn-btn">最大3</button>

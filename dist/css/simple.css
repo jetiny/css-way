@@ -3290,10 +3290,12 @@
   .tn-btn-shadow:not([disabled]).active, .tn-btn-shadow:not([disabled]):active {
     box-shadow: inset 0 0.2em 0.5em rgba(0, 0, 0, 0.2); }
 
-.group.inline > .tbtn {
+.tn-group > .tbtn,
+.tn-group-line > .tbtn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
-  .group.inline > .tbtn ~ .tbtn {
+  .tn-group > .tbtn ~ .tbtn,
+  .tn-group-line > .tbtn ~ .tbtn {
     border-left-width: 0;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0; }
@@ -3356,303 +3358,439 @@
   width: 17px; }
 
 .fss .tn-square,
-.tn-group.ss .tn-square,
-.tn-group.sd .tn-square,
-.tn-group.sl .tn-square,
-.tn-group-line.ss .tn-square,
-.tn-group-line.sd .tn-square,
-.tn-group-line.sl .tn-square {
+.tn-group-col.ss .tn-square,
+.tn-group-col.sd .tn-square,
+.tn-group-col.sl .tn-square,
+.tn-group-row.ss .tn-square,
+.tn-group-row.sd .tn-square,
+.tn-group-row.sl .tn-square {
   font-size: 12px;
   width: 15px; }
 
 .fsl .tn-square,
-.tn-group.ls .tn-square,
-.tn-group.ld .tn-square,
-.tn-group.ll .tn-square,
-.tn-group-line.ls .tn-square,
-.tn-group-line.ld .tn-square,
-.tn-group-line.ll .tn-square {
+.tn-group-col.ls .tn-square,
+.tn-group-col.ld .tn-square,
+.tn-group-col.ll .tn-square,
+.tn-group-row.ls .tn-square,
+.tn-group-row.ld .tn-square,
+.tn-group-row.ll .tn-square {
   font-size: 16px;
   width: 20px; }
 
 /*---@BASIC---*/
 /*---@GROUP---*/
-.tn-group,
-.tn-group-line {
+.tn-group-col,
+.tn-group-row {
   list-style: none;
   margin: 0;
-  padding: 0; }
-  .tn-group > *,
-  .tn-group-line > * {
+  padding: 0;
+  display: inline-block; }
+  .tn-group-col > *,
+  .tn-group-row > * {
     font-size: 14px;
     padding: 0.5em;
     line-height: 1.2; }
-  .tn-group.ll > *,
-  .tn-group-line.ll > * {
+  .tn-group-col.ll > *,
+  .tn-group-row.ll > * {
     font-size: 16px;
     padding: 0.75em; }
-  .tn-group.ls > *,
-  .tn-group-line.ls > * {
+  .tn-group-col.ls > *,
+  .tn-group-row.ls > * {
     font-size: 16px;
     padding: 0.25em; }
-  .tn-group.ss > *,
-  .tn-group-line.ss > * {
+  .tn-group-col.ss > *,
+  .tn-group-row.ss > * {
     font-size: 12px;
     padding: 0.25em; }
-  .tn-group.sl > *,
-  .tn-group-line.sl > * {
+  .tn-group-col.sl > *,
+  .tn-group-row.sl > * {
     font-size: 12px;
     padding: 0.75em; }
-  .tn-group.ld > *,
-  .tn-group-line.ld > * {
+  .tn-group-col.ld > *,
+  .tn-group-row.ld > * {
     font-size: 16px;
     padding: 0.5em; }
-  .tn-group.sd > *,
-  .tn-group-line.sd > * {
+  .tn-group-col.sd > *,
+  .tn-group-row.sd > * {
     font-size: 12px;
     padding: 0.5em; }
-  .tn-group.dl > *,
-  .tn-group-line.dl > * {
+  .tn-group-col.dl > *,
+  .tn-group-row.dl > * {
     font-size: 14px;
     padding: 0.75em; }
-  .tn-group.ds > *,
-  .tn-group-line.ds > * {
+  .tn-group-col.ds > *,
+  .tn-group-row.ds > * {
     font-size: 14px;
     padding: 0.25em; }
-  .tn-group.dd > *,
-  .tn-group-line.dd > * {
+  .tn-group-col.dd > *,
+  .tn-group-row.dd > * {
     font-size: 14px;
     padding: 0.5em; }
-  .tn-group.circle > :first-child,
-  .tn-group-line.circle > :first-child {
-    border-bottom-left-radius: 500px;
-    border-top-left-radius: 500px; }
-  .tn-group.circle > :last-child,
-  .tn-group-line.circle > :last-child {
-    border-bottom-right-radius: 500px;
-    border-top-right-radius: 500px; }
-  .tn-group.round > :first-child,
-  .tn-group-line.round > :first-child {
-    border-bottom-left-radius: 0.3em;
-    border-top-left-radius: 0.3em; }
-  .tn-group.round > :last-child,
-  .tn-group-line.round > :last-child {
-    border-bottom-right-radius: 0.3em;
-    border-top-right-radius: 0.3em; }
 
-.tn-group-line {
-  display: inline-block;
+.tn-group-col > * {
+  display: block;
+  margin-top: -1px; }
+  .tn-group-col > *:focus, .tn-group-col > *:hover, .tn-group-col > *:active, .tn-group-col > *.active {
+    z-index: 2; }
+
+.tn-group-col.circle > :first-child {
+  border-top-left-radius: 500px;
+  border-top-right-radius: 500px; }
+
+.tn-group-col.circle > :last-child {
+  border-bottom-left-radius: 500px;
+  border-bottom-right-radius: 500px; }
+
+.tn-group-col.round > :first-child {
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em; }
+
+.tn-group-col.round > :last-child {
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em; }
+
+.tn-group-row {
   vertical-align: middle; }
-  .tn-group-line::after {
+  .tn-group-row::after {
     clear: both;
     content: "";
     display: table; }
-  .tn-group-line > * {
+  .tn-group-row > * {
     float: left;
     margin-left: -1px; }
-    .tn-group-line > *:focus, .tn-group-line > *:hover, .tn-group-line > *:active, .tn-group-line > *.active {
+    .tn-group-row > *:focus, .tn-group-row > *:hover, .tn-group-row > *:active, .tn-group-row > *.active {
       z-index: 2; }
+  .tn-group-row.circle > :first-child {
+    border-bottom-left-radius: 500px;
+    border-top-left-radius: 500px; }
+  .tn-group-row.circle > :last-child {
+    border-bottom-right-radius: 500px;
+    border-top-right-radius: 500px; }
+  .tn-group-row.round > :first-child {
+    border-bottom-left-radius: 0.3em;
+    border-top-left-radius: 0.3em; }
+  .tn-group-row.round > :last-child {
+    border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em; }
 
 /*---!GROUP---*/
+/*---@LIST---*/
+.tn-list > * {
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+  border: 1px solid;
+  color: #000;
+  background-color: #FFF;
+  border-color: #999999; }
+  .tn-list > *[disabled],
+  fieldset[disabled] .tn-list > * {
+    cursor: default;
+    box-shadow: none;
+    opacity: 0.65; }
+  .tn-list > *:focus, .tn-list > *:hover, .tn-list > *:active, .tn-list > *.active {
+    color: #000;
+    background-color: #f2f2f2; }
+  .tn-list > *[disabled] {
+    color: #000;
+    background-color: #f2f2f2; }
+
+/*---@LIST---*/
 /*---@FLAT---*/
-.flat-default {
+.flat-default,
+.flat-default-group > * {
   color: #000;
   background-color: #E6E6E6;
   border-color: #999999; }
-  .flat-default:focus, .flat-default:hover {
+  .flat-default:focus, .flat-default:hover,
+  .flat-default-group > *:focus,
+  .flat-default-group > *:hover {
     background-color: #cdcdcd;
     border-color: gray; }
-  .flat-default.active, .flat-default:active {
+  .flat-default.active, .flat-default:active,
+  .flat-default-group > *.active,
+  .flat-default-group > *:active {
     background-color: silver;
     border-color: gray; }
   .flat-default[disabled],
-  fieldset[disabled] .flat-default {
+  fieldset[disabled] .flat-default,
+  .flat-default-group > *[disabled],
+  fieldset[disabled]
+  .flat-default-group > * {
     color: #000;
     background-color: #d9d9d9;
     border-color: gray; }
 
-.flat-default-lite {
+.flat-default-lite,
+.flat-default-lite-group > * {
   color: #000;
   background-color: #FFF;
   border-color: #999999; }
-  .flat-default-lite:focus, .flat-default-lite:hover {
+  .flat-default-lite:focus, .flat-default-lite:hover,
+  .flat-default-lite-group > *:focus,
+  .flat-default-lite-group > *:hover {
     background-color: #e6e6e6;
     border-color: gray; }
-  .flat-default-lite.active, .flat-default-lite:active {
+  .flat-default-lite.active, .flat-default-lite:active,
+  .flat-default-lite-group > *.active,
+  .flat-default-lite-group > *:active {
     background-color: #d9d9d9;
     border-color: gray; }
   .flat-default-lite[disabled],
-  fieldset[disabled] .flat-default-lite {
+  fieldset[disabled] .flat-default-lite,
+  .flat-default-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-default-lite-group > * {
     color: #000;
     background-color: #f2f2f2;
     border-color: gray; }
 
-.flat-primary {
+.flat-primary,
+.flat-primary-group > * {
   color: #FFF;
   background-color: #1565C0;
   border-color: #0D47A1; }
-  .flat-primary:focus, .flat-primary:hover {
+  .flat-primary:focus, .flat-primary:hover,
+  .flat-primary-group > *:focus,
+  .flat-primary-group > *:hover {
     background-color: #104d92;
     border-color: #093272; }
-  .flat-primary.active, .flat-primary:active {
+  .flat-primary.active, .flat-primary:active,
+  .flat-primary-group > *.active,
+  .flat-primary-group > *:active {
     background-color: #0d417b;
     border-color: #093272; }
   .flat-primary[disabled],
-  fieldset[disabled] .flat-primary {
+  fieldset[disabled] .flat-primary,
+  .flat-primary-group > *[disabled],
+  fieldset[disabled]
+  .flat-primary-group > * {
     color: #FFF;
     background-color: #1259a9;
     border-color: #093272; }
 
-.flat-primary-lite {
+.flat-primary-lite,
+.flat-primary-lite-group > * {
   color: #1565C0;
   background-color: #FFF;
   border-color: #0D47A1; }
-  .flat-primary-lite:focus, .flat-primary-lite:hover {
+  .flat-primary-lite:focus, .flat-primary-lite:hover,
+  .flat-primary-lite-group > *:focus,
+  .flat-primary-lite-group > *:hover {
     color: #FFF;
     background-color: #1565C0;
     border-color: #093272; }
-  .flat-primary-lite.active, .flat-primary-lite:active {
+  .flat-primary-lite.active, .flat-primary-lite:active,
+  .flat-primary-lite-group > *.active,
+  .flat-primary-lite-group > *:active {
     color: #FFF;
     background-color: #0d417b;
     border-color: #093272; }
   .flat-primary-lite[disabled],
-  fieldset[disabled] .flat-primary-lite {
+  fieldset[disabled] .flat-primary-lite,
+  .flat-primary-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-primary-lite-group > * {
     color: #1565C0;
     background-color: #f2f2f2;
     border-color: #093272; }
 
-.flat-danger {
+.flat-danger,
+.flat-danger-group > * {
   color: #FFF;
   background-color: #E53935;
   border-color: #C62828; }
-  .flat-danger:focus, .flat-danger:hover {
+  .flat-danger:focus, .flat-danger:hover,
+  .flat-danger-group > *:focus,
+  .flat-danger-group > *:hover {
     background-color: #cd1e1a;
     border-color: #9c1f1f; }
-  .flat-danger.active, .flat-danger:active {
+  .flat-danger.active, .flat-danger:active,
+  .flat-danger-group > *.active,
+  .flat-danger-group > *:active {
     background-color: #b61b17;
     border-color: #9c1f1f; }
   .flat-danger[disabled],
-  fieldset[disabled] .flat-danger {
+  fieldset[disabled] .flat-danger,
+  .flat-danger-group > *[disabled],
+  fieldset[disabled]
+  .flat-danger-group > * {
     color: #FFF;
     background-color: #e2231e;
     border-color: #9c1f1f; }
 
-.flat-danger-lite {
+.flat-danger-lite,
+.flat-danger-lite-group > * {
   color: #E53935;
   background-color: #FFF;
   border-color: #C62828; }
-  .flat-danger-lite:focus, .flat-danger-lite:hover {
+  .flat-danger-lite:focus, .flat-danger-lite:hover,
+  .flat-danger-lite-group > *:focus,
+  .flat-danger-lite-group > *:hover {
     color: #FFF;
     background-color: #E53935;
     border-color: #9c1f1f; }
-  .flat-danger-lite.active, .flat-danger-lite:active {
+  .flat-danger-lite.active, .flat-danger-lite:active,
+  .flat-danger-lite-group > *.active,
+  .flat-danger-lite-group > *:active {
     color: #FFF;
     background-color: #b61b17;
     border-color: #9c1f1f; }
   .flat-danger-lite[disabled],
-  fieldset[disabled] .flat-danger-lite {
+  fieldset[disabled] .flat-danger-lite,
+  .flat-danger-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-danger-lite-group > * {
     color: #E53935;
     background-color: #f2f2f2;
     border-color: #9c1f1f; }
 
-.flat-warn {
+.flat-warn,
+.flat-warn-group > * {
   color: #FFF;
   background-color: #FF8F00;
   border-color: #FF6F00; }
-  .flat-warn:focus, .flat-warn:hover {
+  .flat-warn:focus, .flat-warn:hover,
+  .flat-warn-group > *:focus,
+  .flat-warn-group > *:hover {
     background-color: #cc7200;
     border-color: #cc5900; }
-  .flat-warn.active, .flat-warn:active {
+  .flat-warn.active, .flat-warn:active,
+  .flat-warn-group > *.active,
+  .flat-warn-group > *:active {
     background-color: #b36400;
     border-color: #cc5900; }
   .flat-warn[disabled],
-  fieldset[disabled] .flat-warn {
+  fieldset[disabled] .flat-warn,
+  .flat-warn-group > *[disabled],
+  fieldset[disabled]
+  .flat-warn-group > * {
     color: #FFF;
     background-color: #e68100;
     border-color: #cc5900; }
 
-.flat-warn-lite {
+.flat-warn-lite,
+.flat-warn-lite-group > * {
   color: #FF8F00;
   background-color: #FFF;
   border-color: #FF6F00; }
-  .flat-warn-lite:focus, .flat-warn-lite:hover {
+  .flat-warn-lite:focus, .flat-warn-lite:hover,
+  .flat-warn-lite-group > *:focus,
+  .flat-warn-lite-group > *:hover {
     color: #FFF;
     background-color: #FF8F00;
     border-color: #cc5900; }
-  .flat-warn-lite.active, .flat-warn-lite:active {
+  .flat-warn-lite.active, .flat-warn-lite:active,
+  .flat-warn-lite-group > *.active,
+  .flat-warn-lite-group > *:active {
     color: #FFF;
     background-color: #b36400;
     border-color: #cc5900; }
   .flat-warn-lite[disabled],
-  fieldset[disabled] .flat-warn-lite {
+  fieldset[disabled] .flat-warn-lite,
+  .flat-warn-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-warn-lite-group > * {
     color: #FF8F00;
     background-color: #f2f2f2;
     border-color: #cc5900; }
 
-.flat-info {
+.flat-info,
+.flat-info-group > * {
   color: #FFF;
   background-color: #4198D2;
   border-color: #1976D2; }
-  .flat-info:focus, .flat-info:hover {
+  .flat-info:focus, .flat-info:hover,
+  .flat-info-group > *:focus,
+  .flat-info-group > *:hover {
     background-color: #2b7eb5;
     border-color: #145ca4; }
-  .flat-info.active, .flat-info:active {
+  .flat-info.active, .flat-info:active,
+  .flat-info-group > *.active,
+  .flat-info-group > *:active {
     background-color: #266fa0;
     border-color: #145ca4; }
   .flat-info[disabled],
-  fieldset[disabled] .flat-info {
+  fieldset[disabled] .flat-info,
+  .flat-info-group > *[disabled],
+  fieldset[disabled]
+  .flat-info-group > * {
     color: #FFF;
     background-color: #308cca;
     border-color: #145ca4; }
 
-.flat-info-lite {
+.flat-info-lite,
+.flat-info-lite-group > * {
   color: #4198D2;
   background-color: #FFF;
   border-color: #1976D2; }
-  .flat-info-lite:focus, .flat-info-lite:hover {
+  .flat-info-lite:focus, .flat-info-lite:hover,
+  .flat-info-lite-group > *:focus,
+  .flat-info-lite-group > *:hover {
     color: #FFF;
     background-color: #4198D2;
     border-color: #145ca4; }
-  .flat-info-lite.active, .flat-info-lite:active {
+  .flat-info-lite.active, .flat-info-lite:active,
+  .flat-info-lite-group > *.active,
+  .flat-info-lite-group > *:active {
     color: #FFF;
     background-color: #266fa0;
     border-color: #145ca4; }
   .flat-info-lite[disabled],
-  fieldset[disabled] .flat-info-lite {
+  fieldset[disabled] .flat-info-lite,
+  .flat-info-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-info-lite-group > * {
     color: #4198D2;
     background-color: #f2f2f2;
     border-color: #145ca4; }
 
-.flat-done {
+.flat-done,
+.flat-done-group > * {
   color: #FFF;
   background-color: #43A047;
   border-color: #388E3C; }
-  .flat-done:focus, .flat-done:hover {
+  .flat-done:focus, .flat-done:hover,
+  .flat-done-group > *:focus,
+  .flat-done-group > *:hover {
     background-color: #347c37;
     border-color: #2a692d; }
-  .flat-done.active, .flat-done:active {
+  .flat-done.active, .flat-done:active,
+  .flat-done-group > *.active,
+  .flat-done-group > *:active {
     background-color: #2c6a2f;
     border-color: #2a692d; }
   .flat-done[disabled],
-  fieldset[disabled] .flat-done {
+  fieldset[disabled] .flat-done,
+  .flat-done-group > *[disabled],
+  fieldset[disabled]
+  .flat-done-group > * {
     color: #FFF;
     background-color: #3b8e3f;
     border-color: #2a692d; }
 
-.flat-done-lite {
+.flat-done-lite,
+.flat-done-lite-group > * {
   color: #43A047;
   background-color: #FFF;
   border-color: #388E3C; }
-  .flat-done-lite:focus, .flat-done-lite:hover {
+  .flat-done-lite:focus, .flat-done-lite:hover,
+  .flat-done-lite-group > *:focus,
+  .flat-done-lite-group > *:hover {
     color: #FFF;
     background-color: #43A047;
     border-color: #2a692d; }
-  .flat-done-lite.active, .flat-done-lite:active {
+  .flat-done-lite.active, .flat-done-lite:active,
+  .flat-done-lite-group > *.active,
+  .flat-done-lite-group > *:active {
     color: #FFF;
     background-color: #2c6a2f;
     border-color: #2a692d; }
   .flat-done-lite[disabled],
-  fieldset[disabled] .flat-done-lite {
+  fieldset[disabled] .flat-done-lite,
+  .flat-done-lite-group > *[disabled],
+  fieldset[disabled]
+  .flat-done-lite-group > * {
     color: #43A047;
     background-color: #f2f2f2;
     border-color: #2a692d; }
