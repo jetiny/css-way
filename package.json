@@ -22,7 +22,7 @@
   "devDependencies": {
     "bourbon": "^4.2.6",
     "gulp": "^3.9.0",
-    "gulp-copy": "0.0.2",
+    "gulp-copy": "jetiny/gulp-copy#master",
     "gulp-log": "0.0.0",
     "gulp-param": "^0.6.4",
     "gulp-replace": "^0.5.4",
