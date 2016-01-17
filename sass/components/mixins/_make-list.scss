@@ -1,0 +1,21 @@
+
+@mixin make-list-item() {
+    cursor: pointer;
+    display: block;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    border: 1px solid;
+}
+
+@mixin make-list-variant($color, $bg-color, $bd-color) {
+	@include make-color-variant($color, $bg-color, $bd-color); //默认颜色
+	@include when-hover-focus-active { //活动颜色
+		@include make-color-variant(
+			$color, 
+			if($bg-color, darken($bg-color, 5%) , $bg-color) , 
+			false
+		);
+	};
+	@include when-disabled { //禁用颜色
+		@include make-color-variant($color, if($bg-color, darken($bg-color, 5%) , $bg-color), false);
+	};
+}

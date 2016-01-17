@@ -1,0 +1,17 @@
+$list-on : false !default;
+
+$list-item-text-color 			:  #000 	!default;
+$list-item-bg-color 			:  #FFF 	!default;
+$list-item-bd-color 			:  #999999 	!default;
+
+@if $list-on {
+/*---@LIST---*/
+	.tn-list {
+		> * {
+			@include make-list-item;
+			@include make-form-element-disabled;
+			@include make-list-variant($list-item-text-color, $list-item-bg-color, $list-item-bd-color);
+		}
+	}
+/*---@LIST---*/
+}

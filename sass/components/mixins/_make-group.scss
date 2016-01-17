@@ -64,6 +64,7 @@ $group-item-selector : '>li, >.item' !default;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	display: inline-block; 
 	
 	>* {
 		@include make-size-default;
@@ -73,33 +74,44 @@ $group-item-selector : '>li, >.item' !default;
 	@include make-group-item('>*');
 }
 
-@mixin make-group-line() {
-	display: inline-block;
-	vertical-align: middle;
-	@include clearfix;
-	>* {
-		float: left;
-		margin-left: -1px ;
-		@include when-hover-focus-active{
-			z-index: 2;
-		};
+@mixin make-group-line($vertical) {
+	@if $vertical {
+		>* {
+			display: block;
+			margin-top: -1px ;
+			@include when-hover-focus-active{
+				z-index: 2;
+			};
+		}
+	}
+	@else {
+		vertical-align: middle;
+		@include clearfix;
+		>* {
+			float: left;
+			margin-left: -1px ;
+			@include when-hover-focus-active{
+				z-index: 2;
+			};
+		}
 	}
 }
 
-@mixin make-group-item-circle() {
-	:first-child {
-		@include border-left-radius(500px);
+@mixin make-group-radius($radius, $vertical) {
+	@if $vertical {
+		:first-child {
+			@include border-top-radius($radius);
+		}
+		:last-child {
+			@include border-bottom-radius($radius);
+		}
 	}
-	:last-child {
-		@include border-right-radius(500px);
-	}
-}
-
-@mixin make-group-item-round($radius : .3em) {
-	:first-child {
-		@include border-left-radius($radius);
-	}
-	:last-child {
-		@include border-right-radius($radius);
+	@else {	
+		:first-child {
+			@include border-left-radius($radius);
+		}
+		:last-child {
+			@include border-right-radius($radius);
+		}
 	}
 }

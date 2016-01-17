@@ -29,12 +29,12 @@ $basic-float-important: false !default;
 	}
 
 	.fss,
-	.tn-group.ss,
-	.tn-group.sd,
-	.tn-group.sl,
-	.tn-group-line.ss,
-	.tn-group-line.sd,
-	.tn-group-line.sl,
+	.tn-group-col.ss,
+	.tn-group-col.sd,
+	.tn-group-col.sl,
+	.tn-group-row.ss,
+	.tn-group-row.sd,
+	.tn-group-row.sl,
 	{
 		.tn-square {
 			@include make-square-sm;
@@ -42,12 +42,12 @@ $basic-float-important: false !default;
 	}
 	
 	.fsl,
-	.tn-group.ls,
-	.tn-group.ld,
-	.tn-group.ll,	
-	.tn-group-line.ls,
-	.tn-group-line.ld,
-	.tn-group-line.ll,
+	.tn-group-col.ls,
+	.tn-group-col.ld,
+	.tn-group-col.ll,	
+	.tn-group-row.ls,
+	.tn-group-row.ld,
+	.tn-group-row.ll,
 	{
 		.tn-square {
 			@include make-square-lg;

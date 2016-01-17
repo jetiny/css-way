@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../dist/css/simple.css">
+</head>
+<body>
+	<div class="demo-group">
+		<div class="info">Group 默认</div>
+		<pre class="code">
+ul.tn-group-col[style=width:100px]>li{列表$}*5
+ul.tn-group-col.round[style=width:100px]>li{列表$}*5
+
+ul.tn-group-row>li{列表$}*5
+ul.tn-group-row.round>li{列表$}*5
+ul.tn-group-row.circle>li{列表$}*5
+		</pre>
+		<div class="view view-group-default">
+<ul class="tn-group-col" style="width: 100px">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+</ul>
+<ul class="tn-group-col round" style="width:100px">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+</ul>
+
+<ul class="tn-group-row">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+</ul>
+<ul class="tn-group-row round">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+</ul>
+<ul class="tn-group-row circle">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+</ul>
+		</div>
+		<style type="text/css">
+			.view-group-default li {
+				border: 1px solid gray;
+			}
+		</style>
+	</div>
+	<div class="demo-group">
+		<div class="info">Group + List 列表</div>
+		<pre class="code">
+ul.tn-group-col.tn-list>li{默认列表项$}*5
+
+ul.tn-group-col.tn-list>li.flat-default-lite{default列表项$}*5
+ul.tn-group-col.tn-list>li.flat-warn-lite{warn列表项$}*5
+
+
+ul.tn-group-col.tn-list>li.flat-info-lite{info列表项$}*5
+ul.tn-group-col.tn-list.flat-done-lite-group>li{done列表项$}*5
+		</pre>
+		<div class="view">
+<ul class="tn-group-col tn-list">
+	<li>默认列表项1</li>
+	<li>默认列表项2</li>
+	<li>默认列表项3</li>
+	<li>默认列表项4</li>
+	<li>默认列表项5</li>
+</ul>
+<ul class="tn-group-col tn-list">
+	<li class="flat-default-lite">default列表项1</li>
+	<li class="flat-default-lite">default列表项2</li>
+	<li class="flat-default-lite">default列表项3</li>
+	<li class="flat-default-lite">default列表项4</li>
+	<li class="flat-default-lite">default列表项5</li>
+</ul>
+<ul class="tn-group-col tn-list">
+	<li class="flat-warn-lite">warn列表项1</li>
+	<li class="flat-warn-lite">warn列表项2</li>
+	<li class="flat-warn-lite">warn列表项3</li>
+	<li class="flat-warn-lite">warn列表项4</li>
+	<li class="flat-warn-lite">warn列表项5</li>
+</ul>
+<ul class="tn-group-col tn-list">
+	<li class="flat-info-lite">info列表项1</li>
+	<li class="flat-info-lite">info列表项2</li>
+	<li class="flat-info-lite">info列表项3</li>
+	<li class="flat-info-lite">info列表项4</li>
+	<li class="flat-info-lite">info列表项5</li>
+</ul>
+<ul class="tn-group-col tn-list flat-done-lite-group">
+	<li>done列表项1</li>
+	<li>done列表项2</li>
+	<li>done列表项3</li>
+	<li>done列表项4</li>
+	<li>done列表项5</li>
+</ul>
+		</div>
+	</div>
+	<div class="demo-group">
+		<div class="info">Group + Button 列表</div>
+		<pre class="code">
+.tn-group-col.flat-default-lite-group>button.tn-btn{button默认列表项}*5
+.tn-group-col>button.tn-btn.flat-info-lite{info列表项$}*5
+
+		</pre>
+		<div class="view">
+<div class="tn-group-col flat-default-lite-group">
+	<button class="tn-btn">button默认列表项</button>
+	<button class="tn-btn">button默认列表项</button>
+	<button class="tn-btn">button默认列表项</button>
+	<button class="tn-btn">button默认列表项</button>
+	<button class="tn-btn">button默认列表项</button>
+</div>
+<div class="tn-group-col">
+	<button class="tn-btn flat-info-lite">info列表项1</button>
+	<button class="tn-btn flat-info-lite">info列表项2</button>
+	<button class="tn-btn flat-info-lite">info列表项3</button>
+	<button class="tn-btn flat-info-lite">info列表项4</button>
+	<button class="tn-btn flat-info-lite">info列表项5</button>
+</div>
+		</div>
+	</div>
+</body>
+</html>

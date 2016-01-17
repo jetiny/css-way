@@ -1,22 +1,33 @@
 $group-on: false !default;
 
+$group-round-radius : .3em;
+$group-circle-radius : 500px;
+
 @if $group-on {
 /*---@GROUP---*/
-	.tn-group,
-	.tn-group-line {
+	.tn-group-col,
+	.tn-group-row {
 		@include make-group-default;
-		
-		&.circle > {
-			@include make-group-item-circle;
-		}
+	}
 
+	.tn-group-col {
+		@include make-group-line(true);
+		&.circle > {
+			@include make-group-radius($group-circle-radius, true);
+		}
 		&.round > {
-			@include make-group-item-round;
+			@include make-group-radius($group-round-radius, true);
 		}
 	}
 
-	.tn-group-line {
-		@include make-group-line;
+	.tn-group-row {
+		@include make-group-line(false);
+		&.circle > {
+			@include make-group-radius($group-circle-radius, false);
+		}
+		&.round > {
+			@include make-group-radius($group-round-radius, false);
+		}
 	}
 /*---!GROUP---*/
 }
