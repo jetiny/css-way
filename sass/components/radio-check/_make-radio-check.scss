@@ -1,0 +1,33 @@
+
+@mixin make-radio-check-default() {
+    position: relative;
+    display: inline-block;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    padding-left: 2em !important;
+
+    > input { // 不能隐藏, 需要focus等表现
+        position: absolute;
+        left: -9999px;
+	}
+}
+
+@mixin make-radio-check-text() {
+    &::after,
+    &::before {
+        box-sizing: content-box;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 40%;
+        margin: 0.25em;
+        margin-top: -.45em;
+        width: 1em;
+        height: 1em;
+        border: .2em solid transparent;
+        border-radius: .3em;
+
+        @include transition(0.28s ease);
+    }
+}

@@ -1,0 +1,170 @@
+// 使用label包裹input:radio+span来做
+$radio-check-on : false !default;
+
+$radio-check-text-selector : 'span' !default;
+
+$radio-check-disabled-bd-color: rgba(0, 0, 0, 0.26) !default;
+$radio-check-disabled-bg-color: rgba(0, 0, 0, 0.26) !default;
+$radio-check-fill-color		  : #26a69a !default;
+
+@if $radio-check-on {
+/*---@RADIO-CHECK---*/
+	.tn-radio,
+	.tn-check,
+	{
+		@include make-radio-check-default;
+		@include make-size-default;
+
+		> #{$radio-check-text-selector} {
+			@include make-radio-check-text;
+		}
+
+		> input {
+			// 默认状态
+            + #{$radio-check-text-selector} {
+                &::before { // before为外圈较大的部分
+                    border-color: $radio-check-fill-color;
+                }
+                &::after { // after为内圈较小的部分
+                    @include transform(scale(0));
+                }
+            }
+			// 获得焦点后缩放
+            &:focus,
+            &:checked:focus, {
+                + #{$radio-check-text-selector} {
+                    &::before,
+                    &::after {
+                        @include transform(scale(1.05));
+                    }
+                }
+            }
+            // 禁用状态还原大小
+            &[disabled] {
+                + #{$radio-check-text-selector} {
+                    &::before,
+                    &::after {
+                        border-color: $radio-check-disabled-bd-color;
+                        @include transform(scale(1)) ;				//重置缩放效果
+                        box-shadow: none; 				//重置阴影效果
+                    }
+                }
+            }
+            // 选中状态
+            &:checked {
+            	// 外圈消失, 内圈浮现
+                + #{$radio-check-text-selector} {
+                	&::before {
+                        border-color: transparent;
+                    }
+                    &::after {
+                        background-color: $radio-check-fill-color;
+                        @include transform(scale(0.9));
+                    }
+                }
+
+                &[disabled] {
+                    + #{$radio-check-text-selector} {
+                        &::after {
+                            background-color: $radio-check-disabled-bg-color;
+                            border-color: transparent;
+                        }
+                    }
+                }
+            }
+		}
+	}
+
+	.tn-radio,
+	.tn-check, {
+		&.incap { // 内浮现效果
+            > input {
+                + #{$radio-check-text-selector} {
+                    &::after {
+                        box-shadow: inset 0 0 0 0.2em rgba(255, 255, 255, 0.8);
+                    }
+                }
+            }
+		}
+
+        &.cap { // 浮现效果
+            > input {
+            	&:not([disabled]) {
+	                + #{$radio-check-text-selector} {
+	                    &::after {
+	                        box-shadow: inset 0px 2px 3px 0px rgba(74, 214, 164, 0.34), 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+	                    }
+	                }
+            	}
+                &:checked {
+                    + #{$radio-check-text-selector} {
+                        &::before {
+                            border-color: $radio-check-fill-color;
+                        }
+                        &::after {
+                            @include transform(scale(0.6));
+                        }
+                    }
+
+                    &[disabled] {
+                        + #{$radio-check-text-selector} {
+                            &::before {
+                                border-color: $radio-check-disabled-bd-color;
+                            }
+                        }
+                    }
+                }
+            }
+        } // .cap
+	}
+
+	.tn-radio {
+		> #{$radio-check-text-selector} {
+			&::after,
+    		&::before {
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.tn-check {
+		> #{$radio-check-text-selector} {
+			&::after,
+    		&::before {
+				border-radius: .3em;
+			}
+		}
+        &.tick {
+            > input {
+                + #{$radio-check-text-selector} {
+                    &:after {
+                        background-color: transparent;
+                    }
+                }
+                &:checked {
+                    + #{$radio-check-text-selector} {
+                        &::after {
+                            width: .5em;
+                            border-radius: .1em;
+                            @include border-color(transparent $radio-check-fill-color $radio-check-fill-color transparent);
+                            @include transform( scale(1) rotate(35deg));
+                            -webkit-backface-visibility: hidden;
+                            @include transform-origin(100% 70%);
+                        }
+                    }
+                    &[disabled] {
+                        + #{$radio-check-text-selector} {
+                            &::after {
+                                background-color: transparent;
+                                @include border-color(transparent $radio-check-disabled-bd-color $radio-check-disabled-bd-color transparent);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+	}
+
+/*---!RADIO-CHECK---*/
+}
